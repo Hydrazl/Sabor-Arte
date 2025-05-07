@@ -21,7 +21,8 @@
     --text: hsla(0,0%,87%,100%);
     --text-black: #000;
     --text-white: #fff;
-    --gbvertical: linear-gradient(90deg, #F6F3C4, #FAD287);
+    --gbvertical: linear-gradient(180deg, #F6F3C4, #FAD287);
+    --gbhorizon: linear-gradient(135deg, var(--verde-1), var(--verde-3));
     --verde-1: #0a5a3b;
     --verde-2: #1c753e; 
     --verde-3: #093D2A;
@@ -97,6 +98,13 @@ color: inherit;
 text-decoration: none;
 }
 
+.h1,
+.h2,
+.h3 {
+    font-family: var(--ff-copse);
+    line-height: 1.2;
+}
+
 img {
 height: auto;
 }
@@ -145,7 +153,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--border-30);
+    background: linear-gradient(to top, var(--verde-1), var(--verde-3));
 }
 
 ::-webkit-scrollbar-thumb {
@@ -176,6 +184,7 @@ body {
     justify-content: center;
     padding-inline: 30px;
     border-radius: var(--radius-5);
+    transition: transform 0.3s;
 }
 
 .btn:hover {
@@ -191,7 +200,7 @@ body {
 }
 
 .header {
-    background-color: var(--secondary);
+    background: linear-gradient(135deg, var(--verde-1), var(--verde-3));
     position: absolute;
     top: 0;
     left: 0;
@@ -247,7 +256,7 @@ body {
 
 .search-btn:hover {
     transform: scale(1.2);
-    color: var(--primary);
+    color: #999;
 }
 
 /* Banner */
@@ -272,7 +281,7 @@ body {
     z-index: -1;
 }
 
-/* Serviços - Código Melhorado */
+/* Serviços */
 .container-serv {
     padding-inline: 16px;
     max-width: 1500px;
@@ -447,13 +456,40 @@ body {
     background-position: center;
     background-size: cover;
     margin-top: 10px;
+    padding: 40px 20px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+/* Overlay/máscara que se mescla com a cor de fundo do site */
+.container-sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(19, 50, 43, 0.85), /* Cor de fundo do site com alta opacidade */
+        rgba(19, 50, 43, 0.2)  /* Cor de fundo com opacidade média */
+    );
+    z-index: 1;
+}
+
+/* Garantir que todo o conteúdo fique acima do overlay */
+.about .container-sobre > * {
+    position: relative;
+    z-index: 2;
 }
 
 .about .container-sobre {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    padding: 30px;
+    gap: 30px;
+    align-items: center;
 }
 
 .section {
@@ -465,9 +501,12 @@ body {
 }
 
 .about-banner {
+    margin-block-end: 50px;
+    max-width: 500px;
     align-items: center;
     position: relative;
     width: 100%;
+    margin: 0 auto;
 }
 
 .about-banner img {
@@ -501,6 +540,7 @@ body {
     text-align: center;
     margin-top: 50px;
 }
+
 /* Paralllax */
 .parallax {
     background: url(../img/parallax.jpg);
@@ -533,4 +573,105 @@ body {
 
 .content {
     max-width: 800px;
+}
+
+/* Galeria */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.galeria img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(60%);
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.produto .section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#service {
+    scroll-margin-top: 200px;
+}
+
+#about {
+    scroll-margin-top: 200px;
+}
+
+#dish {
+    scroll-margin-top: 200px;
+}
+
+/* Botão Topo */
+.back-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-image: linear-gradient(135deg, var(--verde-1), var(--verde-3));
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    font-size: var(--fs-2);
+    z-index: 10;
+    border-radius: 10px;
+    transition: var(--transition-1);
+}
+
+.back-top-btn:hover {
+    transform: translateY(-20px);
+}
+
+/* Footer */
+.footer {
+    background-image: url(../img/footer-background.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.footer-top .container-footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: var(--fs-8);
+}
+
+.footer-brand .footer-text {
+    margin-block: 20px 25px;
+}
+
+.footer-brand .social-list {
+    display: flex;
+    gap: 10px;
+}
+
+.footer .social-link {
+    background-color: var(--verde-1);
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    transition: var(--transition-1);
+}
+
+.footer .social-link:hover {
+    background-color: var(--verde-2);
+    transform: translateY(-2px);
 }
