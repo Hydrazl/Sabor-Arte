@@ -649,6 +649,32 @@ body {
     transform: translateY(-20px);
 }
 
+/* Contato */
+.container-contato {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contato .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contato .container-contato {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 50px;
+}
+.formulario h2 {
+    background: var(--gbhorizon);
+    text-align: center;
+    font-size: var(--fs-4);
+}
+
+.input {
+    margin-top: 30px;
+}
+
 /* Footer */
 .footer {
     background-image: url(../img/footer-background\ 1.png);
