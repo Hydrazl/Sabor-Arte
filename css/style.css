@@ -22,6 +22,7 @@
     --text-black: #000;
     --text-white: #fff;
     --gbvertical: linear-gradient(180deg, #F6F3C4, #FAD287);
+    --gbhorizontal: linear-gradient(to left, #F6F3C4, #FAD287);;
     --gbhorizon: linear-gradient(135deg, var(--verde-1), var(--verde-3));
     --verde-1: #0a5a3b;
     --verde-2: #1c753e; 
@@ -244,7 +245,10 @@ body {
 }
 
 .navbar-link:hover {
-    color: var(--gbvertical);
+    background: var(--gbhorizontal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .search-btn,
@@ -258,7 +262,10 @@ body {
 .nav-toggle-btn,
 .search-btn:hover {
     transform: scale(1.2);
-    color: #999;
+    background: var(--gbhorizontal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nav-toggle-btn {
