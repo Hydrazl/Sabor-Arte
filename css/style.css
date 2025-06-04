@@ -247,16 +247,22 @@ body {
     color: var(--gbvertical);
 }
 
-.search-btn {
+.search-btn,
+.nav-toggle-btn {
     color: var(--text-white);
     font-size: var(--fs-3);
     border: none;
     transition: transform 0.2s ease, color 0.3s ease;
 }
 
+.nav-toggle-btn,
 .search-btn:hover {
     transform: scale(1.2);
     color: #999;
+}
+
+.nav-toggle-btn {
+    display: none;
 }
 
 /* Banner */
@@ -275,8 +281,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
 }
@@ -289,8 +295,8 @@ body {
 }
 
 .service-list {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     padding-block: 60px 30px;
     padding-inline: 25px;
     gap: 30px;
@@ -674,4 +680,34 @@ body {
 .footer .social-link:hover {
     background-color: var(--verde-2);
     transform: translateY(-2px);
+}
+
+/* Responsávidade Header */
+@media (max-width: 1324px) {
+    .btn,
+    .search-btn {
+        display: none;
+    }
+
+    .navbar-list .navbar-link {
+        font-size: 14px;
+    }
+
+    .header .logo img {
+        width: 100px;
+    }
+
+    .container {
+        max-width: 950px;
+    }
+}
+
+@media (max-width:768px) {
+    .header .navbar {
+        display: none;
+    }
+
+    .nav-toggle-btn {
+        display: flex;
+    }
 }
